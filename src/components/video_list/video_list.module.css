@@ -1,0 +1,6 @@
+.video__list {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  list-style: none;
+}
