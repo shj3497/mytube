@@ -1,7 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import VideoList from './components/video_list/video_list';
+import Loading from './components/loading/loading';
 
 function App() {
+  const [isLoading, setLoading] = useState(true);
   const [videos, setVideos] = useState([]);
 
   useEffect(() => {
@@ -9,15 +11,28 @@ function App() {
       method: 'GET',
       redirect: 'follow'
     };
-    
-    fetch("https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResult=25&key=AIzaSyBXmi_7XYzOSL8o3-0gMWmOkWbfnLHdU4o", requestOptions)
+
+    const myInfo = require('./myInfo.json');
+    fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResult=25&key=${myInfo.APIKey}`, requestOptions)
       .then(response => response.json())
-      .then(result => setVideos(result.items))
+      .then(result => {
+        setVideos(result.items);
+        setTimeout(() => {
+          setLoading();
+        }, 3000);
+      })
       .catch(error => console.log('error', error));
   }, [])
   
   return (
-    <VideoList videos={videos} />
+    isLoading ? 
+      (
+        <Loading />
+      )
+      :
+      (
+        <VideoList videos={videos} />
+      )
   );
 }
 
