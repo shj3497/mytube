@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, { useRef } from 'react';
 import styles from './search_header.module.css'
 
 const SearchHeader = (props) => {
@@ -7,6 +7,9 @@ const SearchHeader = (props) => {
 
   const handleSearch = () => {
     const value = inputRef.current.value;
+    console.log(value);
+    // 자식 컴포넌트에서 부모컴포넌트의 함수를 호출한다?
+    props.onSearch(value);
   }
 
   const onClick = () => {

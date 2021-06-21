@@ -8,7 +8,7 @@ const VideoList = (props) => {
       {
         videos.map(video => 
           // key값 주의
-          <VideoItem key={video.etag} video={video} />
+          <VideoItem key={video.id.videoId} video={video} />
         )
       }
     </ul>
