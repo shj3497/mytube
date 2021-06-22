@@ -1,0 +1,10 @@
+.detail {
+  padding: 0.2em;
+  color: white;
+}
+
+.title,
+.channelTitle {
+  margin-left: 10px;
+  margin-top: 10px;
+}
