@@ -3,43 +3,27 @@ import VideoList from './components/video_list/video_list';
 import Loading from './components/loading/loading';
 import SearchHeader from './components/search_header/search_header';
 import styles from './app.module.css'
-import myInfo from './myInfo.json';
 
-function App() {
+function App({ youtube }) {
   const [isLoading, setLoading] = useState(true);
   const [videos, setVideos] = useState([]);
   
 
   const search = query => {
-    const requestOptions = {
-      method: 'GET',
-      redirect: 'follow'
-    };
-    
-    fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${query}&type=video&key=${myInfo.APIKey}`, requestOptions)
-      .then(response => response.json())
-      .then(result => result.items.map(item => ({...item, id: item.id.videoId})))
-      .then(items => setVideos(items))
-      .catch(error => console.log('error', error));
+    youtube.search(query)
+      .then(videos => setVideos(videos));
   }
 
 
   useEffect(() => {
-    const requestOptions = {
-      method: 'GET',
-      redirect: 'follow'
-    };
-
-    fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&type=video&key=${myInfo.APIKey}`, requestOptions)
-      .then(response => response.json())
-      .then(result => {
-        setVideos(result.items);
-        setTimeout(() => {
-          setLoading();
-        });
+    youtube.mostPopular() //
+      .then(videos => {
+        setVideos(videos);
+        setTimeout(()=>{
+          setLoading(false);
+        },1000)
       })
-      .catch(error => console.log('error', error));
-  }, [])
+  }, []);
   
   return (
     isLoading ? 

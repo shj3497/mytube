@@ -7,7 +7,6 @@ const SearchHeader = (props) => {
 
   const handleSearch = () => {
     const value = inputRef.current.value;
-    console.log(value);
     // 자식 컴포넌트에서 부모컴포넌트의 함수를 호출한다?
     props.onSearch(value);
   }
