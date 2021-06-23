@@ -4,7 +4,60 @@
 }
 
 .title,
-.channelTitle {
+.channel__Container {
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
+.title {
+  padding-bottom: 10px;
+  border-bottom: solid 1px gray;
+}
+
+.title > h2 {
+  font-weight: 600;
+}
+
+.title > p {
+  margin: 10px 0 10px 0;
+  font-size: 0.9rem;
+  color: #aaaaaa;
+}
+
+.title > p > span {
+  margin-left: 5px;
+}
+
+.channel {
+  display: flex;
+  /* align-items: center; */
+}
+
+.channel img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.channelInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   margin-left: 10px;
-  margin-top: 10px;
+}
+
+.channelTitle {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.channelInfo p {
+  margin-top: 2px;
+  font-size: 0.8rem;
+  color: #aaaaaa;
+}
+
+.description {
+  margin-top: 30px;
+  padding-left: 50px;
 }

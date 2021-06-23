@@ -1,5 +1,6 @@
 .app {
-  max-width: 80rem;
+  max-width: 100rem;
+  margin: 0 10px 0 10px;
 }
 
 .content {
@@ -21,12 +22,10 @@
 
   .detail {
     flex: 1 1 100%;
-    padding: 0 24px 0 24px;
   }
 
   .list {
     flex: 1 1 100%;
     margin-top: 50px;
-    padding: 0 24px 0 24px;
   }
 }
