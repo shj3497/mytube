@@ -10,13 +10,21 @@ function App({ youtube }) {
   const [videos, setVideos] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
   
+  const mainPageGo = () => {
+    //! 함수명은 mainPageGo로 정했지만 사용자에게 영상을 추천하는 알고리즘은 없으므로 최근에 검색했던 리스트 페이지로 이동시켰다.
+    setSelectedVideo(null);
+  }
+
   const selectVideo = (video) => {
     setSelectedVideo(video);
   }
 
   const search = query => {
     youtube.search(query)
-      .then(videos => setVideos(videos));
+      .then(videos => {
+        setVideos(videos)
+        setSelectedVideo(null);
+      });
   }
 
 
@@ -38,7 +46,7 @@ function App({ youtube }) {
       :
       (
         <div className={styles.app}>
-          <SearchHeader onSearch={search} />
+          <SearchHeader onSearch={search} mainPageGo={mainPageGo} />
           <section className={styles.content}>
             {
               selectedVideo && (

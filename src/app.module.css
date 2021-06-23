@@ -13,3 +13,20 @@
 .list {
   flex: 1 1 30%;
 }
+
+@media screen and (max-width: 1020px) {
+  .content {
+    flex-wrap: wrap;
+  }
+
+  .detail {
+    flex: 1 1 100%;
+    padding: 0 24px 0 24px;
+  }
+
+  .list {
+    flex: 1 1 100%;
+    margin-top: 50px;
+    padding: 0 24px 0 24px;
+  }
+}
