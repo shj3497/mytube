@@ -28,6 +28,10 @@
   margin-left: 5px;
 }
 
+.channel__Container {
+  margin-top: 10px;
+}
+
 .channel {
   display: flex;
   /* align-items: center; */

@@ -8,7 +8,7 @@ const VideoDetail = (props) => {
   const hiddenSubscriberCount = channel[0].statistics.hiddenSubscriberCount
   let viewCount = videoInfo[0].statistics.viewCount;
   let publishTime = video.snippet.publishTime.split('T')[0].replaceAll('-','. ');
-  
+
   viewCount = parseInt(viewCount).toLocaleString('ko-KR');
   
   
@@ -21,7 +21,7 @@ const VideoDetail = (props) => {
     subscriber = subscriberCount + '명'
   }
 
-  const desciption = channel[0].snippet.description;
+  const description = channel[0].snippet.description;
 
   return(
     <section className={styles.detail}>
@@ -54,14 +54,14 @@ const VideoDetail = (props) => {
                 (
                   <span></span>
                 ):(
-                  <p>{subscriber}</p>
+                  <p>구독자 {subscriber}</p>
                 )
               }
             </div>
           </div>
           <div className={styles.description}>
             {
-              desciption.split('\n').map((line, i) => {
+              description.split('\n').map((line, i) => {
                 return (<span key={i}>{line}<br/></span>)
               })
             }
