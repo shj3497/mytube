@@ -1,0 +1,51 @@
+.container {
+  padding: 10px 0px 10px 10px;
+  border-bottom: solid 1px #303030;
+}
+
+.container > h2 {
+  font-weight: 600;
+}
+
+.viewCount {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0 10px 0;
+}
+
+.viewCount > p {
+  font-size: 0.9rem;
+  color: #aaaaaa;
+}
+
+.viewCount > p > span {
+  margin-left: 5px;
+}
+
+.like {
+  position: absolute;
+  right: 0px;
+  bottom: -15px;
+}
+
+.like > ul {
+  display: flex;
+  list-style: none;
+}
+
+.like > ul > li {
+  cursor: pointer;
+  height: 30px;
+  color: #aaaaaa;
+  font-size: 1rem;
+}
+
+.like li:not(:last-child) {
+  margin-right: 20px;
+}
+
+.like i {
+  font-size: 1.4rem;
+  padding-right: 10px;
+}
