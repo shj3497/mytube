@@ -27,7 +27,7 @@ const CommentItem = (props) => {
   
   return(
     <li>
-      <div class={styles.container}>
+      <div className={styles.container}>
         <div className={styles.userImg}>
           <img src={userImg} alt="" />
         </div>

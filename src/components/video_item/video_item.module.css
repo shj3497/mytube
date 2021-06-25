@@ -47,9 +47,32 @@
   color: #aaaaaa;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1020px) {
   .video__container.grid {
     width: 25%;
+  }
+  .video__container.list {
+    width: 100%;
+  }
+  .video__container.list > .video__item {
+    display: flex;
+    margin: 0;
+    /* justify-content: flex-start; */
+    align-items: flex-start;
+  }
+
+  .video__container.list .video__description {
+    margin-left: 1em;
+  }
+
+  .video__container.list .video__title {
+    padding-top: 0.3rem;
+    font-size: 1rem;
+  }
+
+  .video__container.list .video__channel {
+    padding-top: 1rem;
+    font-size: 0.9rem;
   }
 }
 

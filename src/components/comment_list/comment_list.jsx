@@ -16,11 +16,13 @@ const CommentList = (props) => {
   today.push(date);
 
   return (
-    <ul className={styles.commentList}>
-      {
-        comments.map(comment => (<CommentItem key={comment.id} comment={comment} today={today} />))
-      }
-    </ul>
+    <div className={styles.container}>
+      <ul className={styles.commentList}>
+        {
+          comments.map(comment => (<CommentItem key={comment.id} comment={comment} today={today} />))
+        }
+      </ul>
+    </div>
   )
 }
 

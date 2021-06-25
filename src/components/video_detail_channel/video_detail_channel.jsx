@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import styles from './video_detail_channel.module.css'
 
 const VideoDetailChannel = ({video, channel}) => {
-  
-  // const {video, channel} = props
+
+  const [subsribe, setSubsribe] = useState(false);
 
   const subscriberCount = channel[0].statistics.subscriberCount;
   const hiddenSubscriberCount = channel[0].statistics.hiddenSubscriberCount
@@ -15,8 +15,16 @@ const VideoDetailChannel = ({video, channel}) => {
   }else{
     subscriber = subscriberCount + '명'
   }
-
   const description = channel[0].snippet.description;
+
+  const subscribeRef = useRef();
+  const subscribeBtn = () => {
+    if(subsribe){
+      setSubsribe(false);
+    }else{
+      setSubsribe(true);
+    }
+  }
 
   return(
     <div className={styles.container}>
@@ -37,8 +45,18 @@ const VideoDetailChannel = ({video, channel}) => {
             }
           </div>
         </div>
-        <div className={styles.subscribe}>
-          <span>구독</span>
+        <div onClick={subscribeBtn}>
+          {
+            subsribe ? (
+              <span ref={subscribeRef} className={styles.subscribeON}>
+                구독중
+              </span>
+            ) : (
+              <span ref={subscribeRef} className={styles.subscribeOFF}>
+                구독
+              </span>
+            )
+          }
         </div>
       </div>
       <div className={styles.description}>

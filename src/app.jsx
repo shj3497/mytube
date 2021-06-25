@@ -46,7 +46,7 @@ function App({ youtube }) {
     videoComments(video.id.videoId);
     setTimeout(() => {
       setSelectedVideo(video);  
-    },300);
+    },700);
 
     scrollUp();
   }
