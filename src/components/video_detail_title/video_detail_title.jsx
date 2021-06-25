@@ -1,9 +1,7 @@
 import React from 'react';
 import styles from './video_detail_title.module.css';
 
-const VideoDetailTitle = (props) => {
-
-  const {video, videoInfo} = props;
+const VideoDetailTitle = ({video, videoInfo}) => {
 
   let viewCount = videoInfo[0].statistics.viewCount;
   let publishTime = video.snippet.publishTime.split('T')[0].replaceAll('-','. ');

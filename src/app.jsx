@@ -11,6 +11,7 @@ function App({ youtube }) {
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [channelInfo, setChannelInfo] = useState();
   const [videoInfo, setVideoInfo] = useState();
+  const [comments, setComments] = useState();
   const appRef = useRef();
   
   const mainPageGo = () => {
@@ -32,9 +33,17 @@ function App({ youtube }) {
       })
   }
 
+  const videoComments = (videoId) => {
+    youtube.comments(videoId)
+      .then(comments => {
+        setComments(comments);
+      })
+  }
+
   const selectVideo = (video) => {
     channelViewInfo(video.snippet.channelId);
     videoViewInfo(video.id.videoId);
+    videoComments(video.id.videoId);
     setTimeout(() => {
       setSelectedVideo(video);  
     },300);
@@ -78,7 +87,7 @@ function App({ youtube }) {
             {
               selectedVideo && (
                 <div className={styles.detail}>
-                  <VideoDetail video={selectedVideo} channel={channelInfo} videoInfo={videoInfo} />
+                  <VideoDetail video={selectedVideo} channel={channelInfo} videoInfo={videoInfo} comments={comments} />
                 </div>
               )
             }

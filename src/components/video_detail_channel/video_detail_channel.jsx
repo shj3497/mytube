@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './video_detail_channel.module.css'
 
-const VideoDetailChannel = (props) => {
+const VideoDetailChannel = ({video, channel}) => {
   
-  const {video, channel} = props
+  // const {video, channel} = props
 
   const subscriberCount = channel[0].statistics.subscriberCount;
   const hiddenSubscriberCount = channel[0].statistics.hiddenSubscriberCount

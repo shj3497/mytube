@@ -1,8 +1,7 @@
 import React from 'react';
-import styles from './video_detail_iframe.module.css'
 
-const VideoDetailIframe = (props) => {
-  const {video} = props
+const VideoDetailIframe = ({video}) => {
+  // const {video} = props
   return(
     <iframe
       className=""
@@ -10,7 +9,7 @@ const VideoDetailIframe = (props) => {
       type="text/html" 
       title="youtube video player"
       width="100%" 
-      height="500px"
+      height="700px"
       src={`https://www.youtube.com/embed/${video.id.videoId}`}
       frameBorder="0"
       allowFullScreen
