@@ -19,34 +19,36 @@ function App({ youtube }) {
     setSelectedVideo(null);
   }
 
-  const channelViewInfo = (channelId) => {
+  const channelViewInfo = async(channelId) => {
     youtube.channel(channelId)
       .then(info => {
         setChannelInfo(info);
       })
   }
 
-  const videoViewInfo = (videoId) => {
+  const videoViewInfo = async(videoId) => {
     youtube.videoInfo(videoId)
       .then(info => {
         setVideoInfo(info);
       })
   }
 
-  const videoComments = (videoId) => {
+  const videoComments = async(videoId) => {
     youtube.comments(videoId)
       .then(comments => {
         setComments(comments);
       })
   }
 
-  const selectVideo = (video) => {
-    channelViewInfo(video.snippet.channelId);
-    videoViewInfo(video.id.videoId);
-    videoComments(video.id.videoId);
+  // 안되면 promiseAll이라는 걸로 해결해보자.
+  const selectVideo = async(video) => {
+    await channelViewInfo(video.snippet.channelId);
+    await videoViewInfo(video.id.videoId);
+    await videoComments(video.id.videoId);
+    
     setTimeout(() => {
-      setSelectedVideo(video);  
-    },700);
+      setSelectedVideo(video);
+    },500);
 
     scrollUp();
   }

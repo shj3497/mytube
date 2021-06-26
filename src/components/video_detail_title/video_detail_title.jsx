@@ -1,7 +1,15 @@
-import React from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import styles from './video_detail_title.module.css';
 
 const VideoDetailTitle = ({video, videoInfo}) => {
+
+  const [likeCount, setLikeCount] = useState(0);
+  const [disLikeCount, setDisLikeCount] = useState(0);
+  const [likeCountChk, setLikeCountChk] = useState(true);
+  const [disLikeCountChk, setDisLikeCountChk] = useState(true);
+
+  const likeRef = useRef();
+  const disLikeRef = useRef();
 
   let viewCount = videoInfo[0].statistics.viewCount;
   let publishTime = video.snippet.publishTime.split('T')[0].replaceAll('-','. ');
@@ -18,9 +26,46 @@ const VideoDetailTitle = ({video, videoInfo}) => {
     }
     return result;
   }
+  
+  const countUp = () => {
+    if(likeCountChk){
+      setLikeCount(parseInt(likeCount) + 1);
+      setLikeCountChk(false);
+      likeRef.current.style.color = `#3EA6FF`;
+      if(!disLikeCountChk){
+        setDisLikeCount(parseInt(disLikeCount) - 1);
+        setDisLikeCountChk(true);
+        disLikeRef.current.style.color = `#aaaaaa`;
+      }
+    }else{
+      setLikeCount(parseInt(likeCount) - 1);
+      setLikeCountChk(true);
+      likeRef.current.style.color = `#aaaaaa`;
+    }
+  }
+  
+  const countDown = () => {
+    if(disLikeCountChk){
+      setDisLikeCount(parseInt(disLikeCount) + 1);
+      setDisLikeCountChk(false);
+      disLikeRef.current.style.color = `#3EA6FF`;
+      if(!likeCountChk){
+        setLikeCount(parseInt(likeCount) - 1);
+        setLikeCountChk(true);
+        likeRef.current.style.color = `#aaaaaa`;
+      }
+    }else{
+      setDisLikeCount(parseInt(disLikeCount) - 1);
+      setDisLikeCountChk(false);
+      disLikeRef.current.style.color = `#aaaaaa`;
+    }
+  }
 
-  let likeCount = mathCount(videoInfo[0].statistics.likeCount);
-  let disLikeCount = mathCount(videoInfo[0].statistics.dislikeCount);
+  useEffect(()=>{
+    setLikeCount(videoInfo[0].statistics.likeCount);
+    setDisLikeCount(videoInfo[0].statistics.dislikeCount);
+  }, [videoInfo])
+
 
   return(
     <div className={styles.container}>
@@ -29,8 +74,8 @@ const VideoDetailTitle = ({video, videoInfo}) => {
         <p>조회수 {viewCount}회 <span>• {publishTime}</span> </p>
         <div className={styles.like}>
           <ul>
-            <li><span><i className="fas fa-thumbs-up"></i>{likeCount}</span></li>
-            <li><span><i className="fas fa-thumbs-down"></i>{disLikeCount}</span></li>
+            <li ref={likeRef} onClick={countUp}><span><i className="fas fa-thumbs-up"></i>{mathCount(likeCount)}</span></li>
+            <li ref={disLikeRef} onClick={countDown}><span><i className="fas fa-thumbs-down"></i>{mathCount(disLikeCount)}</span></li>
             <li><span><i className="fas fa-share"></i>공유</span></li>
             <li><span><i className="fas fa-save"></i>저장</span></li>
             <li><i className="fas fa-ellipsis-h"></i></li>
