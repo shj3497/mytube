@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import styles from './search_header.module.css'
+import youtubePng from './youtube.png';
 
 const SearchHeader = (props) => {
 
@@ -29,7 +30,7 @@ const SearchHeader = (props) => {
   return(
     <header className={styles.header}>
       <div className={styles.logo} onClick={mainPageGo}>
-        <img className={styles.img} src="/images/Youtube.png" alt="lgo" />
+        <img className={styles.img} src={youtubePng} alt="logo" />
         <h1 className={styles.title}>Mytube</h1>
       </div>
       <input ref={inputRef} className={styles.input} type="search" placeholder="Search..." onKeyPress={onKeyPress} />

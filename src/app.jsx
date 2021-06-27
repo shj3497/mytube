@@ -42,15 +42,15 @@ function App({ youtube }) {
 
   // 안되면 promiseAll이라는 걸로 해결해보자.
   const selectVideo = async(video) => {
+    await videoComments(video.id.videoId);
     await channelViewInfo(video.snippet.channelId);
     await videoViewInfo(video.id.videoId);
-    await videoComments(video.id.videoId);
     
     setTimeout(() => {
       setSelectedVideo(video);
-    },500);
+      scrollUp();
+    }, 700);
 
-    scrollUp();
   }
 
   const search = query => {
