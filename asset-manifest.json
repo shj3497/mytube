@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/mytube/static/css/main.ed215017.chunk.css",
-    "main.js": "/mytube/static/js/main.3e10b309.chunk.js",
-    "main.js.map": "/mytube/static/js/main.3e10b309.chunk.js.map",
+    "main.js": "/mytube/static/js/main.46150459.chunk.js",
+    "main.js.map": "/mytube/static/js/main.46150459.chunk.js.map",
     "runtime-main.js": "/mytube/static/js/runtime-main.ae71f25a.js",
     "runtime-main.js.map": "/mytube/static/js/runtime-main.ae71f25a.js.map",
     "static/js/2.b6c14666.chunk.js": "/mytube/static/js/2.b6c14666.chunk.js",
@@ -10,12 +10,13 @@
     "index.html": "/mytube/index.html",
     "static/css/main.ed215017.chunk.css.map": "/mytube/static/css/main.ed215017.chunk.css.map",
     "static/js/2.b6c14666.chunk.js.LICENSE.txt": "/mytube/static/js/2.b6c14666.chunk.js.LICENSE.txt",
-    "static/js/main.3e10b309.chunk.js.LICENSE.txt": "/mytube/static/js/main.3e10b309.chunk.js.LICENSE.txt"
+    "static/js/main.46150459.chunk.js.LICENSE.txt": "/mytube/static/js/main.46150459.chunk.js.LICENSE.txt",
+    "static/media/youtube.611e434d.png": "/mytube/static/media/youtube.611e434d.png"
   },
   "entrypoints": [
     "static/js/runtime-main.ae71f25a.js",
     "static/js/2.b6c14666.chunk.js",
     "static/css/main.ed215017.chunk.css",
-    "static/js/main.3e10b309.chunk.js"
+    "static/js/main.46150459.chunk.js"
   ]
 }
